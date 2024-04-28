@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
           </div>
         </div>
       </Container>
+      <Outlet />
     </>
   );
 };
