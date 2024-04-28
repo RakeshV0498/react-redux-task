@@ -1,26 +1,15 @@
 import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
-import { CartState } from "../Context";
+
 import { useEffect, useState } from "react";
 import Rating from "./Rating";
 import { AiFillDelete } from "react-icons/ai";
 
 const Cart = () => {
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
-
   const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    setTotal(cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0));
-  }, [cart]);
-
-  console.log(cart.qty);
 
   return (
     <>
-      <div className="home">
+      {/* <div className="home">
         <div className="cart-container">
           <ListGroup>
             {cart.map((product) => (
@@ -83,7 +72,7 @@ const Cart = () => {
             Proceed to CheckOut
           </Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

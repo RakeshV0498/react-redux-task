@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import Rating from "./Rating";
 import "./Styles.css";
-import { CartState } from "../Context";
+// import { CartState } from "../Context";
 
 const Product = ({ product }) => {
   const {

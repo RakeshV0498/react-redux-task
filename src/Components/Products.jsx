@@ -1,11 +1,12 @@
-import { CartState } from "../Context";
+/* eslint-disable no-unused-vars */
+import { useDispatch, useSelector } from "react-redux";
 import Product from "./Product";
 import "./Styles.css";
 
 const Products = () => {
-  const {
-    state: { products },
-  } = CartState();
+  const { products } = useSelector((state) => state.productReducer);
+
+  const dispatch = useDispatch();
 
   return (
     <>
