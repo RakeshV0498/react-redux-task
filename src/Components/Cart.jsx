@@ -11,12 +11,13 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const [total, setTotal] = useState(0);
+  const [totalQty, setTotalQty] = useState(0);
 
   useEffect(() => {
-    console.log(cartProducts);
     setTotal(
       cartProducts.reduce((acc, curr) => acc + curr.price * curr.qty, 0)
     );
+    setTotalQty(cartProducts.reduce((acc, curr) => acc + curr.qty, 0));
   }, [cartProducts]);
 
   return (
@@ -82,6 +83,7 @@ const Cart = () => {
         </div>
         <div className="filters summary">
           <span className="title">Subtotal {cartProducts.length} Items</span>
+          <span className="title">Cart Count:{totalQty}</span>
           <span style={{ fontWeight: 700, fontSize: 20 }}>Total:$ {total}</span>
           <Button type="button" disabled={cartProducts.length === 0}>
             Proceed to CheckOut
