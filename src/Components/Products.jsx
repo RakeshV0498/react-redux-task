@@ -5,7 +5,7 @@ import "./Styles.css";
 
 const Products = () => {
   const { products } = useSelector((state) => state.productReducer);
-
+  console.log(products);
   const dispatch = useDispatch();
 
   return (
