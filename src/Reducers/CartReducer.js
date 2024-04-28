@@ -8,16 +8,14 @@ const cartReducer = (state = initialState, action) => {
     case "add_to_cart":
       return {
         ...state,
-        cartProducts: [...state.cartProducts, action.product],
-        count: state.count + 1,
+        cartProducts: [...state.cartProducts, action.payload],
       };
     case "remove_from_cart":
       return {
         ...state,
         cartProducts: state.cartProducts.filter(
-          (product) => product.id === action.id
+          (product) => product.id !== action.payload.id
         ),
-        count: state.count - 1,
       };
     case "change_cart_qty":
       return {
