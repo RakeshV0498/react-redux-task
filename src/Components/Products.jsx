@@ -16,6 +16,10 @@ const Products = () => {
             <Product
               product={{
                 ...product,
+                name:
+                  product.title.length > 20
+                    ? `${product.title.slice(0, 20)}..`
+                    : product.title,
                 description:
                   product.description.length > 50
                     ? `${product.description.slice(0, 50)}..`
