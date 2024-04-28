@@ -19,7 +19,7 @@ const Header = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark" sticky="top">
         <Container>
           <Navbar.Brand>
             <Link to="/">MyShop Cart</Link>
