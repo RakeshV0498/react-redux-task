@@ -9,15 +9,9 @@ import {
 } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { CartState } from "../Context";
 import { AiFillDelete } from "react-icons/ai";
 
 const Header = () => {
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
-
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -29,10 +23,10 @@ const Header = () => {
             <Dropdown alignright="true">
               <DropdownToggle variant="primary">
                 <FaShoppingCart color="white" fontSize="25px" />
-                <Badge bg="none">View Cart {cart.length}</Badge>
+                <Badge bg="none">View Cart {0}</Badge>
               </DropdownToggle>
               <Dropdown.Menu style={{ minWidth: 325 }}>
-                {cart.length > 0 ? (
+                {/* {cart.length > 0 ? (
                   <>
                     {cart.map((product) => (
                       <span className="cart-item" key={product.id}>
@@ -65,7 +59,7 @@ const Header = () => {
                   </>
                 ) : (
                   <span style={{ padding: 10 }}>Cart is Empty</span>
-                )}
+                )} */}
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
