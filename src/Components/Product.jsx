@@ -10,7 +10,7 @@ const Product = ({ product }) => {
         <Card>
           <Card.Img
             variant="top"
-            src={product.images[0]}
+            src={product.imageUrl}
             alt="{product.name}"
             height={300}
           />
