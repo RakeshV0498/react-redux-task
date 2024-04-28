@@ -1,6 +1,5 @@
 const initialState = {
   cartProducts: [],
-  count: 0,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -8,7 +7,7 @@ const cartReducer = (state = initialState, action) => {
     case "add_to_cart":
       return {
         ...state,
-        cartProducts: [...state.cartProducts, action.payload],
+        cartProducts: [...state.cartProducts, { ...action.payload, qty: 1 }],
       };
     case "remove_from_cart":
       return {
@@ -20,8 +19,10 @@ const cartReducer = (state = initialState, action) => {
     case "change_cart_qty":
       return {
         ...state,
-        cart: state.cart.filter((c) =>
-          c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
+        cartProducts: state.cartProducts.map((product) =>
+          product.id === action.payload.id
+            ? { ...product, qty: action.payload.qty }
+            : product
         ),
       };
     default:

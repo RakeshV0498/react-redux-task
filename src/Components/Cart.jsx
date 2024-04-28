@@ -3,21 +3,33 @@ import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import Rating from "./Rating";
 import { AiFillDelete } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
+  const { cartProducts } = useSelector((state) => state.cartReducer);
+
+  const dispatch = useDispatch();
+
   const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    console.log(cartProducts);
+    setTotal(
+      cartProducts.reduce((acc, curr) => acc + curr.price * curr.qty, 0)
+    );
+  }, [cartProducts]);
 
   return (
     <>
-      {/* <div className="home">
+      <div className="home">
         <div className="cart-container">
           <ListGroup>
-            {cart.map((product) => (
+            {cartProducts.map((product) => (
               <ListGroup.Item key={product.id}>
                 <Row>
                   <Col md={2}>
                     <Image
-                      src={product.image}
+                      src={product.imageUrl}
                       alt={product.title}
                       fluid
                       rounded
@@ -39,8 +51,11 @@ const Cart = () => {
                       value={product.qty}
                       onChange={(e) =>
                         dispatch({
-                          type: "Change_Cart_Qty",
-                          payload: { id: product.id, qty: e.target.value },
+                          type: "change_cart_qty",
+                          payload: {
+                            id: product.id,
+                            qty: Number(e.target.value),
+                          },
                         })
                       }
                     >
@@ -54,7 +69,7 @@ const Cart = () => {
                       type="button"
                       variant="light"
                       onClick={() =>
-                        dispatch({ type: "Remove_From_Cart", payload: product })
+                        dispatch({ type: "remove_from_cart", payload: product })
                       }
                     >
                       <AiFillDelete fontSize="20px" />
@@ -66,13 +81,13 @@ const Cart = () => {
           </ListGroup>
         </div>
         <div className="filters summary">
-          <span className="title">Subtotal {cart.length} Items</span>
+          <span className="title">Subtotal {cartProducts.length} Items</span>
           <span style={{ fontWeight: 700, fontSize: 20 }}>Total:$ {total}</span>
-          <Button type="button" disabled={cart.length === 0}>
+          <Button type="button" disabled={cartProducts.length === 0}>
             Proceed to CheckOut
           </Button>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
