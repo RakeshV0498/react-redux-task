@@ -2,7 +2,7 @@ import { CartState } from "../Context";
 import Product from "./Product";
 import "./Styles.css";
 
-const Home = () => {
+const Products = () => {
   const {
     state: { products },
   } = CartState();
@@ -29,4 +29,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Products;
