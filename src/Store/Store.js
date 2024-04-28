@@ -7,7 +7,7 @@ const Store = configureStore({
     productReducer,
     cartReducer,
   },
-  devTools: true,
+  devTools: false,
 });
 
 export default Store;
