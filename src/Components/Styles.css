@@ -7,7 +7,8 @@
 }
 
 .product-container {
-  margin: 3rem;
+  margin: 0 auto;
+  margin-top: 5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 2rem;
@@ -15,8 +16,13 @@
 }
 
 .products {
+  width: 400px;
   box-shadow: 5px 5px 16px rgba(0, 0, 0, 0.15);
   border-radius: 9px;
+}
+
+#prod-img {
+  width: 100% !important;
 }
 
 .cart-container {

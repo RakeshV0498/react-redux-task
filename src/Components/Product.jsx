@@ -11,13 +11,14 @@ const Product = ({ product }) => {
 
   return (
     <>
-      <div className="products" style={{ width: "400px" }}>
+      <div className="products">
         <Card>
           <Card.Img
             variant="top"
             src={product.imageUrl}
             alt={product.name}
             style={{ objectFit: "cover" }}
+            id="prod-img"
           />
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
